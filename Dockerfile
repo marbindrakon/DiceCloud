@@ -6,9 +6,8 @@ RUN apt-get update --quiet \
     curl \
     git
 RUN ln --symbolic --force $(which bsdtar) $(which tar)
-RUN useradd --create-home --shell /bin/bash dicecloud
-USER dicecloud
-WORKDIR /home/dicecloud
+USER 1000700000
+WORKDIR /
 RUN curl https://install.meteor.com/?release=1.8.0.2 | sh
 ENV PATH="${PATH}:/home/dicecloud/.meteor"
 COPY . ./DiceCloud
