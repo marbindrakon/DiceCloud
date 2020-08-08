@@ -5,9 +5,9 @@ RUN apt-get update --quiet \
     libarchive-tools \
     curl \
     git
-RUN ln --symbolic --force $(which bsdtar) $(which tar)
+RUN ln --symbolic --force $(which bsdtar) $(which tar) && mkdir /dicecloud && chown 1000700000:root /dicecloud
+WORKDIR /dicecloud
 USER 1000700000
-WORKDIR /
 RUN curl https://install.meteor.com/?release=1.8.0.2 | sh
 ENV PATH="${PATH}:/home/dicecloud/.meteor"
 COPY . ./DiceCloud
