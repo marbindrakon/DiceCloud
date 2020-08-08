@@ -11,5 +11,5 @@ USER dicecloud
 WORKDIR /home/dicecloud
 RUN curl https://install.meteor.com/?release=1.8.0.2 | sh
 ENV PATH="${PATH}:/home/dicecloud/.meteor"
-COPY dev.sh ./dev.sh
-ENTRYPOINT ./dev.sh
+COPY . ./DiceCloud
+ENTRYPOINT ./DiceCloud/dev.sh
