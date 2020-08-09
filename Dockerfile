@@ -10,4 +10,5 @@ WORKDIR /dicecloud
 RUN curl https://install.meteor.com/?release=1.8.0.2 | sh
 ENV PATH="${PATH}:/home/dicecloud/.meteor"
 COPY . ./DiceCloud
+RUN chmod -R 770 /dicecloud
 ENTRYPOINT ./DiceCloud/dev.sh
